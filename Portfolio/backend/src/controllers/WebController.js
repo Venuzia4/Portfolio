@@ -17,12 +17,12 @@ const getTemplate = (name, data = {}) => {
 
 class WebController {
   static home = async (req, res) => {
-    const [games] = await models.games.findAll();
+    const [messages] = await models.messages.findAll();
 
     res.send(
       getTemplate("home", {
-        title: "Games list",
-        games,
+        title: "Messages",
+        messages,
       })
     );
   };

@@ -1,24 +1,11 @@
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
-const session = require("express-session");
 
 // let's create express app
 const app = express();
 
-// Handle sessions
-app.use(
-  session({
-    name: "wcs_steam",
-    secret: "malclequidechire!",
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-      secure: false,
-      maxAge: 24 * 60 * 60 * 1000,
-    },
-  })
-);
+
 
 // use some application-level middlewares
 app.use(

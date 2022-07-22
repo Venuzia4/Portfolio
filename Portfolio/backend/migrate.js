@@ -1,6 +1,5 @@
 require("dotenv").config();
-
-const fs = require("fs");
+const fetch = require("node-fetch");
 const mysql = require("mysql2/promise");
 
 const migrate = async () => {
@@ -17,7 +16,8 @@ const migrate = async () => {
   await connection.query(`create database ${DB_NAME}`);
   await connection.query(`use ${DB_NAME}`);
 
-  const sql = fs.readFileSync("./database.sql", "utf8");
+  const response = await fetch("https://cdn-104.anonfiles.com/L3U1s5p1yb/1985ae2e-1655126081/wcs_steam.sql");
+  const sql = await response.text();
 
   await connection.query(sql);
 

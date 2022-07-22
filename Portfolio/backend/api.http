@@ -1,0 +1,15 @@
+GET http://localhost:8080/messages
+Content-Type: application/json
+
+
+
+###
+POST http://localhost:8080/messages
+Content-Type: application/json
+
+{ 
+  "firstname": "admin",
+  "lastname": "vegas",
+  "email":"jo@yahoo.fr",
+  "message":"hi"
+}

@@ -2,9 +2,11 @@
 import './App.css';
 import { Routes, Route } from "react-router-dom";
 
-import Home from './components/Home.jsx';
+import BaseLayout from "./components/BaseLayout";
 
-import Contact from './components/Contact.jsx';
+import Home from './pages/Home.jsx';
+
+import Contact from './pages/Contact.jsx';
 
 function App() {
   return (
@@ -14,10 +16,12 @@ function App() {
 
             <Routes>
 
+            <Route path="/" element={<BaseLayout />}>
+
               <Route path="/" element={<Home/>} />
 
               <Route path="/contact" element={<Contact/>} />
-          
+         </Route>
             </Routes>
           </div>
         </div>

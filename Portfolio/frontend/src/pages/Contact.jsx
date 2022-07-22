@@ -1,12 +1,33 @@
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import contact from "../assets/contact.png"
+import contact from "../assets/contact.png";
+
+import { sendMessage } from "../services/api";
 
 
 
+function Error({ children }) {
+  return <p className="m-0 mt-2 text-sm text-red-500">{children}</p>;
+}
 export default function Contact() {
   const [sentMessage, setSendMessage] = useState();
   const [error, setError] = useState();
+
+  function gitClick() {
+    window.location.assign('https://github.com/Venuzia4');
+  }
+
+
+  function linkClick() {
+    window.location.assign('https://www.linkedin.com/in/venuzia-babongui-mabika/');
+  }
+
+
+
+  function tweetClick() {
+    window.location.assign('https://twitter.com/MabikaVhenuzya');
+  }
+
 
   const {
     register,
@@ -14,7 +35,14 @@ export default function Contact() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async data => { console.log(data); };
+  const onSubmit = async (formData) => {
+    try {
+      await sendMessage(formData);
+      setSendMessage("Message envoyé!");
+    } catch (err) {
+      setError("Message non envoyé!");
+    }
+  };
 
   if (sentMessage) {
     return (
@@ -31,9 +59,9 @@ export default function Contact() {
       <div className="flex-grow border-2 border-blue-light m-10 " />
 
 
-      <h2 className=' mt-10 text-3xl mt-10 text-center'>Contact</h2>
+      <h2 className=' mt-10 text-3xl mt-10 text-center  bg-purple-100 rounded-full m-8'>Contact</h2>
 
-      <img  className="mx-auto w-40 h-30" src={contact} alt ={contact}/>
+      <img  className="mx-auto w-40 h-30 md:w-[30%]" src={contact} alt ={contact}/>
 
       <div className="py-10 px-10 min-h-screen ">
         <div className="bg-white rounded-lg p-10 md:w-3/4 lg:w-1/2 mx-auto">
@@ -50,6 +78,8 @@ export default function Contact() {
                   maxLength: 100,
                 })}
               />
+
+{errors.firstname && <Error>{errors.firstname.message}</Error>}
             </div>
 
             <div className="mb-5">
@@ -61,6 +91,8 @@ export default function Contact() {
                   maxLength: 100,
                 })}
               />
+
+{errors.lastname && <Error>{errors.lastname.message}</Error>}
 
             </div>
 
@@ -78,6 +110,9 @@ export default function Contact() {
                 })}
               />
 
+
+{errors.email && <Error>{errors.email.message}</Error>}
+
             </div>
 
             <div className="mb-5">
@@ -87,6 +122,8 @@ export default function Contact() {
                 placeholder="Indiquez votre demande ici"
                 {...register("message", { required: "Champ obligatoire" })}
               />
+
+{errors.message && <Error>{errors.message.message}</Error>}
 
             </div>
 
@@ -105,14 +142,14 @@ export default function Contact() {
           
 </div>
         </div>
-        <div class=" p-6 bg-gray-100 flex items-center justify-center md:mx-auto">
-  <div class=" ">
+        <div className=" p-6   mb-[80] bg-gray-100 flex items-center justify-center md:mx-auto">
+
  
 
-      <div class="grid grid-cols-3 mx-auto">
+      <div className="grid grid-cols-3 mx-auto">
        
 
-        <button class="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <button  onClick={tweetClick}className="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 width="50" height="50"
 viewBox="0 0 50 50"
@@ -123,7 +160,7 @@ viewBox="0 0 50 50"
 
      
 
-        <button class="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <button  onClick={linkClick}className="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 width="50" height="50"
 viewBox="0 0 50 50"
@@ -131,7 +168,8 @@ viewBox="0 0 50 50"
         </button>
 
         
-        <button class="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        <button onClick={gitClick}className="bg-gray-700 p-2 font-semibold text-white inline-flex items-center space-x-2 rounded">
+        
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
 width="64" height="64"
 viewBox="0 0 72 72"
@@ -146,7 +184,7 @@ viewBox="0 0 72 72"
       </div>
     </div>
   </div>
-      </div>
+     
    
   );
 }

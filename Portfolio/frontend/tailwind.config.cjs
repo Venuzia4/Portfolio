@@ -8,7 +8,13 @@ module.exports = withMT({
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
-  theme: {
+  theme: { colors: {
+    "primary": "#CAE7DF",
+    "secondary": "#7D3780",
+  }, animation: {
+    "spin-slow": "spin 5s linear infinite",
+  },
+    
     extend: {
       keyframes: {
         wiggle: {
