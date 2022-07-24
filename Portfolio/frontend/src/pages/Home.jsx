@@ -95,8 +95,8 @@ export default function Home() {
               <img className="w-[40%] h-50   rounded-xl " src={cat} alt="" />
               <p className="legend">
                 <strong className="text-xl">
-                  {" "}
-                  Conception d'une site d'adopption de chat
+                  {" "}Designing a cat adoption site
+
                 </strong>{" "}
               </p>
             </div>
@@ -108,8 +108,7 @@ export default function Home() {
               />
               <p className="legend">
                 <strong className="text-xl">
-                  {" "}
-                  Conception d'une application de jeu de replique de film
+                  {" "}Designing a Movie Replica Game App
                 </strong>
               </p>
             </div>
@@ -120,7 +119,7 @@ export default function Home() {
                 alt="pic3"
               />
               <p className="legend">
-                <strong className="text-xl"> Projet hackathon</strong>{" "}
+                <strong className="text-xl">hackathon project</strong>{" "}
               </p>
             </div>
             <div>
@@ -133,7 +132,7 @@ export default function Home() {
               <p className="legend">
                 <strong className="text-xl">
                   {" "}
-                  Conception d'un site market place
+                  Design of a marketplace site
                 </strong>
               </p>
             </div>
@@ -157,7 +156,7 @@ export default function Home() {
               </a>
               <div className="px-6 py-4">
                 <p className="text-gray-700 text-base">
-                  Projet fullstack react/ nodeJs /tailwind
+                  Project fullstack react/ nodeJs /tailwind
                 </p>
               </div>
             </div>
@@ -177,7 +176,7 @@ export default function Home() {
               </a>
               <div className="px-6 py-4">
                 <p className="text-gray-700 text-base">
-                  Projet fullstack react/ nodeJs /tailwind
+                  Project fullstack react/ nodeJs /tailwind
                 </p>
               </div>
             </div>
