@@ -1,29 +1,42 @@
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
+const router = require("./router");
 
-// let's create express app
+
 const app = express();
 
 
 
-// use some application-level middlewares
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL ?? "http://localhost:3000",
-    optionsSuccessStatus: 200,
-    credentials: true,
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+  optionsSuccessStatus: 204
+
+   
   })
 );
+
 
 app.use(express.json());
 
 app.use(express.static(path.join(__dirname, "../public")));
 
-// load router
-const router = require("./router");
 
-app.use(router);
+app.use(express.static(path.join(__dirname, "..", "..", "frontend", "dist")));
+
+
+app.use("/api", router);
+
+
+
+app.get("*", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
+  );
+});
 
 // ready to export
 module.exports = app;

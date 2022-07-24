@@ -1,7 +1,5 @@
 
-
 DROP TABLE IF EXISTS `users`;
-
 CREATE TABLE `users` (
   `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
   `username` VARCHAR(255) NOT NULL UNIQUE,
@@ -21,8 +19,7 @@ CREATE TABLE `messages` (
   `lastname` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
   `message` varchar(255) NOT NULL
-) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARSET = utf8
-
+) ENGINE = InnoDB AUTO_INCREMENT = 7 DEFAULT CHARSET = utf8;
 
 INSERT INTO `messages` (firstname, lastname, email,message) VALUES ("venuzia", "Mabika", "vhenuzya@yahoo.fr", "hello");
 

@@ -1,12 +1,14 @@
 {
-  "name": "mvc-express",
+  "name": "portfolio",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon server.js",
+    "server":"nodemon server.js",
     "migrate": "node migrate.js",
-    "start": "node index.js",
+    "start": "node server.js",
+    
     "lint": "echo '----- Checking Backend...' && npx prettier --debug-check . && eslint --ext .js . && echo '----- Done!'",
     "fix": "prettier --write . && eslint --fix --ext .js ."
   },
@@ -15,10 +17,12 @@
   "license": "ISC",
   "dependencies": {
     "argon2": "^0.28.5",
+    "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "express-session": "^1.17.3",
+    "fs": "^0.0.1-security",
     "joi": "^17.6.0",
     "multer": "^1.4.5-lts.1",
     "mustache": "^4.2.0",
@@ -43,7 +47,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
-    "nodemon": "^2.0.15",
+    "nodemon": "^2.0.19",
     "prettier": "2.5.1"
   }
 }

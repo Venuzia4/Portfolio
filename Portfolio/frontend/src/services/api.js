@@ -2,7 +2,7 @@
 import axios from "axios";
 
 
-const API_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080";
+const API_URL = import.meta.env.VITE_BACKEND_URL ?? "http://localhost:8080/api";
 
 
 
@@ -13,5 +13,12 @@ export const sendMessage = async (data) => {
 
 
   export const sendEmail = async (data) => {
-    return (await axios.post(`${API_URL}/contact`, data)).data;
+    return (await axios.post(`${API_URL}/form`, data)).data;
   };
+
+
+
+
+
+  
+
